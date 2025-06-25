@@ -3,10 +3,14 @@ import { PrismaClient } from '@prisma/client';
 import * as bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { getUserIdFromToken } from './middleware/authUser.js';
+import cors from 'cors';
 
 const app = express();
 const prisma = new PrismaClient();
 
+app.use(cors({
+  origin: 'http://localhost:3000', 
+}));
 app.use(express.json());
 
 const JWT_SECRET = 'your_secret_key'; 

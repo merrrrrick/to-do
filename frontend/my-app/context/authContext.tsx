@@ -22,7 +22,7 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
     const [userId, setUserId] = useState<string>('');
 
     useEffect(() => {
-        const token = localStorage.getItem('Authorization');
+        const token = localStorage.getItem('token');
         if (token) {
             setIsAuthenticated(true);
         } else {

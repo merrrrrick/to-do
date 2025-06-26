@@ -6,6 +6,7 @@ import AddTodo from '@/components/Form';
 
 const Dashboard = () => {
   const [todos, setTodos] = useState([]);
+  const [fetchTodo , setFetch] = useState(false)
 
   useEffect(() => {
 
@@ -25,7 +26,8 @@ const Dashboard = () => {
     }
 
     fetchTodos()
-  }, [])
+  }, [fetchTodo])
+
 
   return (
     <div className=' w-full min-h-[90dvh] h-full flex justify-center gap-6 pt-6'>
@@ -37,7 +39,7 @@ const Dashboard = () => {
       <div className="w-[80%] h-full  flex flex-wrap gap-3">
         {
           todos.map((todo: { id: string, title: string, description: string }) => (
-            <Card key={todo.id} title={todo.title} desc={todo.description} />
+            <Card key={todo.id} id={todo.id} title={todo.title} desc={todo.description} setFetch={setFetch} />
           ))}
       </div>
 

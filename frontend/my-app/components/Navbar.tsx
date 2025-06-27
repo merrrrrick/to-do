@@ -17,13 +17,17 @@ const Navbar = () => {
         }
     }
     return (
-        <nav className='border rounded-3xl p-2 px-4 bg-white w-[80%] max-w-4xl mx-auto mt-4 flex items-center justify-between'>
-            <div className=" text-black flex gap-4">
-                <Link href={'/'}>Home</Link>
-                <Link href={'/dashboard'}>Dashboard</Link>
+        <nav className='border shadow-2xl rounded-3xl p-2 px-4 bg-black w-[80%] max-w-4xl mx-auto mt-4 flex items-center justify-between'>
+            <div className=" text-black flex gap-4 ">
+                <div className='bg-white rounded-2xl p-2 hover:bg-gray-100'>
+                <Link className='font-semibold color-white' href={'/'}>Home</Link>
+                </div>
+                <div className='bg-white rounded-2xl p-2 hover:bg-gray-100'>
+                <Link className='font-semibold' href={'/dashboard'}>Dashboard</Link>
+                </div>
             </div>
 
-            <button onClick={handleClick} className="bg-blue-400 p-2 rounded-2xl px-4">{isAuthenticated ? "Logout" : "Login"}</button>
+            <button onClick={handleClick} className="bg-blue-500 p-2 font-semibold rounded-2xl px-4 hover:bg-blue-400">{isAuthenticated ? "Logout" : "Login"}</button>
         </nav>
     )
 }

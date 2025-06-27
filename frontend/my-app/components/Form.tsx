@@ -28,10 +28,10 @@ const AddTodo = ({setTodos}: {setTodos: React.Dispatch<React.SetStateAction<neve
         }
     } 
     return (
-        <form>
+        <form className='px-4'>
             <input type="text" onChange={(e) => setForm({...form, title: e.target.value})} placeholder='Add a todo' className='w-full p-2 border rounded-2xl mb-4' />
             <input type="text" onChange={(e) => setForm({...form, description: e.target.value})} placeholder='Description' className='w-full p-2 border rounded-2xl mb-4' />
-            <button type='button' onClick={onSubmit} className='bg-blue-400 p-2 rounded-2xl px-4'>Add</button>
+            <button type='button' onClick={onSubmit} className='bg-blue-400 hover:bg-blue-500 p-2 rounded-2xl px-4'>Add</button>
         </form>
     )
 }

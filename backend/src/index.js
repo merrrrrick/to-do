@@ -9,7 +9,7 @@ const app = express();
 const prisma = new PrismaClient();
 
 app.use(cors({
-  origin: '*', 
+  origin: 'https://to-do-533j.onrender.com', 
 }));
 app.use(express.json());
 

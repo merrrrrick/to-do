@@ -3,7 +3,7 @@ import { useAuth } from '@/context/authContext';
 import { useRouter } from 'next/navigation';
 import React, { useState } from 'react'
 
-export const BACKEND_URL = 'https://to-do-533j.onrender.com'
+export const BACKEND_URL = 'https://to-do-0llw.onrender.com'
 
 
 const Signup = () => {

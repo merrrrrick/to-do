@@ -17,7 +17,7 @@ const Navbar = () => {
     }
   };
   return (
-    <nav className='border shadow-2xl rounded-xl pt-2.5 px-4 bg-gradient-to-r from-[#020617] via-[#031E31] to-[#020617] w-full max-w-4xl mx-auto flex items-center justify-between'>
+    <nav className=' pt-2.5 px-4 max-w-4xl mx-auto flex items-center justify-between'>
         <div className=" text-black flex gap-4 ">
             <div className='text-white border hover:border-[#031E31] hover:bg-white hover:text-[#020617] active:bg-slate-50 rounded-full text-base font-medium px-5 py-2.5 text-center me-3 mb-3 dark:text-white dark:focus:ring-gray-800'>
             <Link className='font-semibold color-white' href={'/'}>Home</Link>

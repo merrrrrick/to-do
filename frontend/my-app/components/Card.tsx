@@ -37,6 +37,7 @@ const Card = ({
       console.log(data);
       //@ts-expect-error error
       setFetch((p) => !p);
+      toast("To-do has been edited.");
     } catch (error) {
       console.log(error);
     }

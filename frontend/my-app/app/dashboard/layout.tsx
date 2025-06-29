@@ -11,6 +11,9 @@ const Layout = ({ children }: { children: React.ReactNode }) => {
     if(!isAuthenticated){
         router.push('/login')
     }
+    else {
+        router.push('/login')
+    }
 
     return (
         <div>

@@ -1,12 +1,16 @@
-import { div } from 'motion/react-client'
-import React from 'react'
+// app/(home)/page.tsx
+"use client";
+
+import React from "react";
+import LampDemo from "@/components/ui/lamp"; // Adjust path as needed
 
 const Home = () => {
   return (
-    <div className='w-full min-h-[90dvh] h-screen bg-blue-100 '>
-      home
-    </div>
-  )
-}
+    <LampDemo>
+      <div className="text-white text-4xl font-bold text-center mt-20">
+      </div>
+    </LampDemo>
+  );
+};
 
-export default Home
+export default Home;

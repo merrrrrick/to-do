@@ -5,28 +5,44 @@ import Card from '@/components/Card';
 import AddTodo from '@/components/Form';
 
 const Dashboard = () => {
-  const [todos, setTodos] = useState([]);
+  const [todos, setTodos] = useState<Array<{ id: string; title: string; description: string }>>([]);
+
   const [fetchTodo , setFetch] = useState(false)
 
   useEffect(() => {
+  const token = localStorage.getItem('token');
 
-    const token = localStorage.getItem('token')
-    const fetchTodos = async () => {
+  const fetchTodos = async () => {
+    try {
       const response = await fetch(`${BACKEND_URL}/get-todos`, {
         method: 'GET',
         headers: {
           'Content-Type': 'application/json',
-          'Authorization': `Bearer ${token}`
-        }
+          'Authorization': `Bearer ${token}`,
+        },
       });
 
       const data = await response.json();
-      console.log(data)
-      setTodos(data)
-    }
+      console.log("Fetched todos:", data);
 
-    fetchTodos()
-  }, [fetchTodo])
+      // ✅ Add this check:
+      if (Array.isArray(data)) {
+        setTodos(data);
+      } else if (Array.isArray(data.todos)) {
+        setTodos(data.todos);
+      } else {
+        console.error("Invalid todo data structure:", data);
+        setTodos([]); // fallback to empty array
+      }
+    } catch (error) {
+      console.error("Failed to fetch todos:", error);
+      setTodos([]); // fallback
+    }
+  };
+
+  fetchTodos();
+}, [fetchTodo]);
+
 
 
   return (

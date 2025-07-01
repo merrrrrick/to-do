@@ -1,6 +1,6 @@
 "use client";
 import { BACKEND_URL } from "@/app/(auth)/signup/page";
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { toast } from "sonner";
 const Card = ({
   title,
@@ -16,8 +16,12 @@ const Card = ({
   const [heading, setHeading] = useState(title);
   const [description, setDescription] = useState(desc);
 
+  useEffect(() => {
   const token = localStorage.getItem("token");
+  // do something
+}, []);
   const handleEdit = async () => {
+    const token = localStorage.getItem("token");
     try {
       const body = {
         title: heading,
@@ -44,6 +48,7 @@ const Card = ({
   };
 
   const handleDelete = async () => {
+    const token = localStorage.getItem("token");
     try {
       const response = await fetch(`${BACKEND_URL}/todos/${id}`, {
         method: "DELETE",
@@ -65,13 +70,13 @@ const Card = ({
 
   return (
 
-    <div className="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-96">
-      <div className="mx-3 mb-0 border-b border-slate-200 pt-3 pb-2 px-1">
+    <div className="relative flex flex-col my-6 bg-white shadow-sm border border-slate-200 rounded-lg w-96 bg-gradient-to-r from-slate-100 via-slate-200 to-slate-300">
+      <div className="mx-3 mb-0 border-b border-slate-300 pt-3 pb-2 px-1 ">
         <input
           value={heading}
           onChange={(e) => setHeading(e.target.value)}
           type="text"
-          className="focus:outline-none text-sm text-slate-600 font-medium"
+          className="focus:outline-none text-sm text-slate-600 font-medium bg-transparent"
         />
       </div>
 
@@ -80,7 +85,7 @@ const Card = ({
           value={description}
           onChange={(e) => setDescription(e.target.value)}
           type="text"
-          className="mb-2 focus:outline-none text-slate-800 text-xl font-semibold pb-2.5"
+          className="mb-2 focus:outline-none text-slate-800 text-xl font-semibold pb-2.5 w-full bg-transparent"
         />
         <div className="flex gap-2">
           <button onClick={handleEdit} className="text-white bg-gradient-to-r from-green-400 via-green-500 to-green-600 hover:bg-gradient-to-br focus:ring-4 focus:outline-none focus:ring-green-300 dark:focus:ring-green-800 font-medium rounded-lg text-sm px-5 py-2.5 text-center me-2 mb-2">

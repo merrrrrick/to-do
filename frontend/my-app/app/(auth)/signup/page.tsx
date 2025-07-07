@@ -4,7 +4,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import React, { useState } from "react";
 
-export const BACKEND_URL = "https://to-do-7ea5.onrender.com";
+export const BACKEND_URL = "https://to-do-5j98.onrender.com";
 
 const Signup = () => {
   const { setIsAuthenticated } = useAuth();

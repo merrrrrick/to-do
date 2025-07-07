@@ -1,9 +1,6 @@
 import express from 'express';
 import { PrismaClient } from '@prisma/client';
 import * as bcrypt from "bcrypt";
-import express from 'express';
-import { PrismaClient } from '@prisma/client';
-import * as bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { getUserIdFromToken } from './middleware/authUser.js';
 import cors from 'cors';

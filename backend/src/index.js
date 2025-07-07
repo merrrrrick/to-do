@@ -42,7 +42,8 @@ app.post('/login', async (req , res) => {
             JWT_SECRET,
             { expiresIn: '1h' }
         );
-
+        console.log(token);
+        console.log(existingUser.id);
         res.json({ token });
     } catch (err) {
         console.error(err);

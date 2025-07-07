@@ -1,11 +1,9 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    typescript: {
-    // ✅ Ignore TypeScript build errors
+  typescript: {
     ignoreBuildErrors: true,
   },
   eslint: {
-    // ✅ Ignore ESLint build errors
     ignoreDuringBuilds: true,
   },
 };

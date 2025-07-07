@@ -39,6 +39,7 @@ const FeatureCards = () => {
           </div>
         ))}
       </div>
+      <div>Get Started Now. </div>
     </section>
   );
 };

@@ -13,7 +13,7 @@ app.use(cors({
 }));
 app.use(express.json());
 
-const JWT_SECRET = process.env.JWT_SECRET; 
+const JWT_SECRET = 'your_secret_key'; 
 
 app.post('/login', async (req , res) => {
     const { email, password } = req.body;
@@ -48,7 +48,7 @@ app.post('/login', async (req , res) => {
 
 app.post('/signup', async (req, res) => {
     const { name, email, password } = req.body;
-
+console.log("i am ghere")
     try {
         // Check if user already exists
         const existingUser = await prisma.user.findUnique({
@@ -131,7 +131,7 @@ app.delete('/todos/:id', getUserIdFromToken, async (req, res) => {
   try {
     // Check if todo belongs to user
     const todo = await prisma.todo.findFirst({
-      where: { id: parseInt(id, 10), userId }
+      where: { id: parseInt(id), userId }
     });
 
     if (!todo) {
@@ -158,7 +158,7 @@ app.put('/todos/:id', getUserIdFromToken, async (req, res) => {
   try {
     // Check if todo belongs to user
     const todo = await prisma.todo.findFirst({
-      where: { id: parseInt(id, 10), userId }
+      where: { id: parseInt(id), userId }
     });
 
     if (!todo) {

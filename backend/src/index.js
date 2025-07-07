@@ -15,6 +15,10 @@ app.use(express.json());
 
 const JWT_SECRET = 'your_secret_key'; 
 
+app.get('/', (req, res) => {
+  res.send('Hello World!');
+})
+
 app.post('/login', async (req , res) => {
     const { email, password } = req.body;
 

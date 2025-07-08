@@ -4,9 +4,17 @@ import {
   ClipboardCheck,
   RefreshCcw,
   ShieldCheck,
-} from 'lucide-react'; // new icons
+  Github
+} from 'lucide-react';
+import { useRouter } from 'next/navigation'; // ✅ for Next.js App Router
 
 const FeatureCards = () => {
+  const router = useRouter(); // ✅ called at top level
+
+  const handlePush = () => {
+    router.push('/dashboard');
+  };
+
   const features = [
     {
       icon: <ClipboardCheck className="text-green-400 lg:h-20 lg:w-20 sm:h-10 sm:w-10 mb-4" />,
@@ -26,8 +34,8 @@ const FeatureCards = () => {
   ];
 
   return (
-    <section className="w-full h-screen py-12 px-4 bg-[#020617] text-white">
-      <div className="max-w-6xl h-[40%] mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
+    <section className="w-full min-h-screen py-12 px-4 bg-[#020617] text-white flex flex-col justify-between">
+      <div className="max-w-6xl mx-auto grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
         {features.map((feature, index) => (
           <div
             key={index}
@@ -39,7 +47,23 @@ const FeatureCards = () => {
           </div>
         ))}
       </div>
-      <div>Get Started Now. </div>
+
+      {/* Call to Action */}
+      <div className="flex justify-center items-center mt-20">
+        <button
+          onClick={handlePush}
+          className="text-3xl font-extrabold bg-gradient-to-r from-teal-400 via-indigo-400 to-purple-400 bg-clip-text text-transparent hover:opacity-80 transition duration-300"
+        >
+          Get Started Now.
+        </button>
+      </div>
+
+      {/* Minimalist Footer */}
+      <footer className="mt-20 border-t border-gray-700 text-center text-sm text-gray-400 py-6">
+        <a href='https://github.com/merrrrrick' className='gap-10'>
+          <Github className="inline-block" />merrrrrick
+          </a>
+      </footer>
     </section>
   );
 };
